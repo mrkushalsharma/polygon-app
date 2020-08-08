@@ -5,7 +5,7 @@ function App() {
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
-  const [setError] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [polygons, setPolygons] = useState([]);
   const [centroids, setCentroids] = useState([]);
@@ -103,7 +103,6 @@ function App() {
   if(!isLoaded){
     return <div>Loading...</div>;
   }else{
-    console.log(polygons)
     return (
       <div className="App">
           <div>
