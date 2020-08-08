@@ -3,7 +3,7 @@ const Polygon = require('../models/Polygon')
 
 const {calculateEuclideanDistance, centroid } = require('../service')
 
-app.get('/polygon', async (res) => {
+app.get('/polygon', async (req, res) => {
     
     let polygons = await Polygon.find()
     let centroids = [];
@@ -11,14 +11,14 @@ app.get('/polygon', async (res) => {
     if(polygons.length){
         polygons.forEach(polygon => {
             if(polygon.coordinates && polygon.coordinates.length){
-                centroids.push({name: polygon.name, points: centroid(polygon.coordinates) });
+                centroids.push({'name': polygon.name, 'points': centroid(polygon.coordinates) });
             }
         });
-        if(centroids.length > 1){
+        if(centroids.length>1){
             euclideanDistance = calculateEuclideanDistance(centroids).toFixed(2);
         }
     }
-    const data = {
+    let data = {
         message: 'Polygon data fetched',
         polygons,
         centroids,
