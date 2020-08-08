@@ -5,7 +5,7 @@ function App() {
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [polygons, setPolygons] = useState([]);
   const [centroids, setCentroids] = useState([]);
@@ -16,7 +16,7 @@ function App() {
   const polygonColor = 'blue';
   const lineColor = "black";
   const canvasWidth = 1000;
-  const canvasHeight = 500;
+  const canvasHeight = 1000;
 
   useEffect(() => {
 
@@ -103,11 +103,12 @@ function App() {
   if(!isLoaded){
     return <div>Loading...</div>;
   }else{
+    console.log(polygons)
     return (
       <div className="App">
           <div>
             <div>Euclidean Distance: {euclideanDistance}</div>
-            
+          
             <div> Centroid : 
               <ul>
                 {centroids.map(centroid => (
