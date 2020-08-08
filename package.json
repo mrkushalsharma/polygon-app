@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " concurrently 'cd server && nodemon server.js' 'cd client && yarn start' "
+    "start": " concurrently 'cd server && nodemon server.js' 'cd client && yarn start' ",
+    "yarn-start": "concurrently 'cd server && yarn install' 'cd client && yarn install' 'yarn start'",
+    "npm-start": "concurrently 'cd server && npm install' 'cd client && npm install' 'npm start' "
   },
   "author": "kushal sharma",
   "license": "ISC",
