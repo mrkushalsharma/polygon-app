@@ -3,7 +3,6 @@ const Polygon = require('../models/Polygon')
 
 const {calculateEuclideanDistance, centroid } = require('../service')
 
-
 app.get('/polygon', async (req, res) => {
     
     let polygons = await Polygon.find()

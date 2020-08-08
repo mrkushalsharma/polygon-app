@@ -24,15 +24,14 @@ fs.readFile(csvFilePath, 'utf8', function (err, data) {
                 newCoordinates.push([sides[0], sides[1]]) ;
             })
             polygon.coordinates = newCoordinates;
-            console.log(polygon)
-            // polygon.save((err, a) => {
-            //     if (err) {
-            //         console.log('err', err);
-            //         return false;
-            //     }
-            //     console.log(`Polygon ${polygonInfos[1]} Migrated`);
-            //     return true;
-            // })
+            polygon.save((err, a) => {
+                if (err) {
+                    console.log('err', err);
+                    return false;
+                }
+                console.log(`Polygon ${polygonInfos[1]} Migrated`);
+                return true;
+            })
 
         });
     }
